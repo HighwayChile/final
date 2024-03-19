@@ -106,6 +106,8 @@ print("""
           });
       }
 
+      
+
       // Fetch DOGE price on page load
       fetchDogePrice();
       // this updates teh price every 30 seconds
@@ -118,15 +120,11 @@ print("""
     <!-- articles: mini graph, current difficulty, number of blocks, recent trades -->
   
       <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-
-
-
-
-
      
 """)
 
-# do some python stuff
+
+
 
 # enable error handling (suggested by stackoverflow)
 cgitb.enable(display=0,logdir="/var/www/cgi-bin/error-logs")

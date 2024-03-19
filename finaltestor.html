@@ -50,68 +50,7 @@
 
 
 
-    <script>
-      document.getElementById("search_form").addEventListener("submit", function(event) {
-        event.preventDefault();
-        
-        // lol I had a long time put into this part because of a Shakespearean typo "toLoerCase" is what I typed, omg
-        // I am sure you don't really care, but so much time went into this one silly mistake. But now it works!
-        var searchQuery = document.getElementById("search_field").value.trim().toLowerCase();
-        var pages = {
-          "sitemap":"../dir/sitemap.html", 
-          "dogegraph": "../dir/dogegraph.html",
-          "map":"../dir/sitemap.html", 
-          "graph": "../dir/dogegraph.html",
-          "help" : "../dir/help.html"
-        };
 
-
-        if (pages.hasOwnProperty(searchQuery)) {
-          window.location.href = pages[searchQuery];
-        }
-        else {
-          alert("Page Not Found!");
-        }
-      });
-
-      // CoinGecko API was suggested to me by the chatGPT. I was trying to use doge
-      // chain for a long time and chatGPT was like "no, don't do that." ChatGPT was right.
-      // Dogechain.info API is really advanced, but it does different things. Mostly transaction
-      // and wallet information. I would like that functionality for my site too.
-
-      // Function to fetch and update the DOGE price
-      function fetchDogePrice() {
-        const apiUrl = `https://api.coingecko.com/api/v3/simple/price?ids=dogecoin&vs_currencies=usd`;
-
-        // Fetch DOGE price from CoinGecko API I think it updates every 10 mins
-        fetch(apiUrl)
-          .then(response => response.json())
-          .then(data => {
-            // this is the part that gets the price from coingecko
-            const dogePrice = data.dogecoin.usd;
-            // writes to log. was using for debug
-            console.log('updoot the prooce, ', dogePrice);
-            // writes to page
-            document.getElementById('doge_price').innerText = `$${dogePrice} USD`;
-          })
-          // I am not actually sure it's 5 calls per minute, but it's something like that.
-          .catch(error => {
-            console.error('Error fetching DOGE price:', error);
-            document.getElementById('doge_price').innerText = 'Only 5 price fetches per minute';
-          });
-      }
-
-      // Fetch DOGE price on page load
-      fetchDogePrice();
-      // this updates teh price every 30 seconds
-      setInterval(fetchDogePrice, 30000);
-
-    </script>
-
-    <!-- these were all planned and forgotten. -->
-    <!-- items: search bar, sitemap, graph, news video, news links -->
-    <!-- articles: mini graph, current difficulty, number of blocks, recent trades -->
-  
       <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
   </body>
