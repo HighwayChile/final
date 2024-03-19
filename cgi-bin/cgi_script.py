@@ -61,7 +61,7 @@ print("""
       
     <h1>NASA Astronomy Picture of the Day</h1>
     <div id="NASA-container">
-      <br><br>
+    
         <img width="100%" id="NASA-image" src="" alt="NASA APOD">
         <p id="NASA-title"></p>
         <p id="NASA-explanation"></p>
