@@ -5,8 +5,9 @@
 import cgi
 import cgitb
 
-print("content-type: text/html \n")
 
+print("content-type: text/html \n")
+# main body of html
 print("""
       
 <!DOCTYPE html>
@@ -74,20 +75,13 @@ print("""
 
 
 
-# enable error handling (suggested by stackoverflow)
+# form input for saved text message
 cgitb.enable(display=0,logdir="/var/www/cgi-bin/error-logs")
-
-# declare file path
 file_path = "user_message.txt"
-
-# Get form data
 form = cgi.FieldStorage()
 user_input: str = form.getvalue("user_input", "")
-
-# open in append mode because I wanted to get a list
 with open(file_path, "a") as file:
     file.write(user_input + "\n")
-
 # makes room for the text to be added and recorded
 print("""
 <h1>In the form below, press 'enter' after inputting data</h1>
@@ -98,16 +92,12 @@ print("""
       <p>previously entered data: %s</p>
 </form>
 """ % user_input)
-
-# declare new var for list display
 user_output: str = form.getvalue("user_output", "")
 
 if "button" in form:
   with open(file_path,"r") as file:
       user_output = file.read() + '\n'
-
-print(""" 
-  
+print("""  
 <form method="post" action="cgi_script.py">
   <p>all previous data: %s</p>
   <input type="submit" name="button" value="Show Me">
@@ -119,6 +109,7 @@ if "deleat_button" in form:
   with open(file_path, "w") as file:
       file.write("")
 
+# This next bit conatains the scripts needed for search, and for the two APIs
 print(""" 
 <br><br>  
 <form method="post" action="cgi_script.py">
@@ -137,6 +128,7 @@ print("""
         fetchNASAData();
     });
 
+    // function to display the API photo and info
     function fetchNASAData() {
         const apiKey = "ZrJCfy77fLoXejndMkgTthEacoyeqXFNffPn10dw";
         const apiUrl = `https://api.nasa.gov/planetary/apod?api_key=${apiKey}`;
@@ -158,10 +150,6 @@ print("""
         titleElement.textContent = data.title;
         explanationElement.textContent = data.explanation;
     }
-
-
-
-
 
     document.getElementById("search_form").addEventListener("submit", function(event) {
       event.preventDefault();
@@ -193,25 +181,17 @@ print("""
       fetch(apiUrl)
         .then(response => response.json())
         .then(data => {
-          // this is the part that gets the price from coingecko
           const dogePrice = data.dogecoin.usd;
-          // writes to log. was using for debug
           console.log('updoot the prooce, ', dogePrice);
-          // writes to page
           document.getElementById('doge_price').innerText = `$${dogePrice} USD`;
         })
-        // I am not actually sure it's 5 calls per minute, but it's something like that.
         .catch(error => {
           console.error('Error fetching DOGE price:', error);
           document.getElementById('doge_price').innerText = 'Only 5 price fetches per minute';
         });
     }
 
-    
-
-    // Fetch DOGE price on page load
     fetchDogePrice();
-    // this updates teh price every 30 seconds
     setInterval(fetchDogePrice, 30000);
 
   </script>

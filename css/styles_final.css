@@ -1,4 +1,4 @@
-/* css styling for assignment 5 (cgi_script) */
+/* css styling for final (cgi_script) */
 
 body {
     background-color: #e2ecf5;
@@ -17,9 +17,8 @@ h2 {
 }
 
 h4 {
-    /* text-align: -60px; */
-    padding-right: 30px;
-}
+    padding-left: 42%;
+    }
 
 iframe {
     width: 100%;
@@ -67,8 +66,7 @@ iframe {
 }
 
 #notify_display {
-    text-align: center;
-    padding-left: 30%;
+    text-align: 50%;
 }
 
 #doge_tag {
