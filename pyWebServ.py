@@ -1,10 +1,7 @@
 #!python
 
-
-
 import http.server
 import socketserver
-import requests
 
 PORT = 8000
 handler = http.server.CGIHTTPRequestHandler

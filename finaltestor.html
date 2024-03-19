@@ -62,6 +62,33 @@
 
 
 <script>
+
+  document.addEventListener("DOMContentLoaded", function() {
+        fetchNASAData();
+    });
+
+    function fetchNASAData() {
+        const apiUrl = 'https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY';
+
+        fetch(apiUrl)
+            .then(response => response.json())
+            .then(data => {
+                displayData(data);
+            })
+            .catch(error => console.log(error));
+    }
+
+    function displayData(data) {
+        const imageElement = document.getElementById("NASA-image");
+        const titleElement = document.getElementById("NASA-title");
+        const explanationElement = document.getElementById("NASA-explanation");
+
+        imageElement.src = data.hdurl || data.url;
+        titleElement.textContent = data.title;
+        explanationElement.textContent = data.explanation;
+    }
+
+
     document.getElementById("search_form").addEventListener("submit", function(event) {
     event.preventDefault();
     

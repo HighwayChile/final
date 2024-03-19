@@ -137,7 +137,8 @@ print("""
     });
 
     function fetchNASAData() {
-        const apiUrl = 'https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY';
+        const apiKey = "ZrJCfy77fLoXejndMkgTthEacoyeqXFNffPn10dw";
+        const apiUrl = `https://api.nasa.gov/planetary/apod?api_key=${apiKey}`;
 
         fetch(apiUrl)
             .then(response => response.json())
