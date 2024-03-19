@@ -11,7 +11,7 @@ The search function kind of works to search for known pages, using key and value
 
 This webpage is run using a python server broadcasting on port 8000  
 
-I have found working within node.js to be very difficult for me. I began designing my final project inside of node.js, but everything seemed so baffling to me. I think I just need more practice, because the python server approach is very easy for me to wrap my head around.  
+I have found working within node.js to be very difficult. I began designing my final project inside of node.js, but everything seemed so baffling to me. I think I just need more practice, because the python server approach is very easy for me to wrap my head around.  
 
 
 # 2. Re-review of 1st week sites  
