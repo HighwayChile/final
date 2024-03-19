@@ -1,0 +1,95 @@
+/* css styling for assignment 5 (cgi_script) */
+
+body {
+    background-color: #e2ecf5;
+}
+
+article {
+    margin-top: 20%;
+}
+
+h1 {
+    text-align: center;
+}
+
+h2 {
+    text-align: center;
+}
+
+iframe {
+    width: 100%;
+}
+
+.main_nav {
+    float: right;
+    position: sticky;
+    top: 5px;
+} 
+
+#nav_links {
+    float: left;
+    position: sticky;
+    top: 5px;
+}
+
+.nav_list li {
+    display: inline;
+}
+
+#search_form {
+    float: right;
+}
+
+#search_field {
+    position: relative;
+    display: inline-block;
+    right: -2px;
+    width: 230px;
+    height: 20px;
+}
+
+#search_btn {
+    display: inline-block;
+    width: 60px;
+    height: 26px;
+}
+
+.price_display {
+    float: left;
+    position: sticky;
+    top: 5px;
+}
+
+#doge_tag {
+    display: inline-block;
+}
+
+#doge_price {
+    display: inline;
+}
+
+a:link {
+    color: blue;
+}
+
+a:visited {
+    color: darkblue;
+}
+
+a:hover {
+    color: darkblue;
+}
+
+a:active {
+    color: darkblue;
+}
+
+
+/* @media parameters */
+@media screen and (max-width: 800px) {
+    .price_display {
+        float: left;
+        position: sticky;
+        top: 75px;
+    }
+}
