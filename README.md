@@ -40,7 +40,7 @@ seems to work fine.
 
 3. I think around the time of Assignemnt 03 is when I started to learn some things that allowed me to add some functionality to my site. Even though it is just navigation, it adds a lot to the feel of a complete site. The layout is better, and it's possible to see the articles or anchors, or other things on the screen.  
 
-4. Assignment 04 is when I implemented a "review" process that almost works. I wish I had found a way to perpetually save the reviews, other than saving it as a local file, then loading that file on each visit to the site. The layout is much the same from Assignment 03, with some minor changes. I personally like the color scheme!  
+4. Assignment 04 is when I implemented a "review" process using post and get that almost works. I wish I had found a way to perpetually save the reviews, other than saving it as a local file, then loading that file on each visit to the site. The layout is much the same from Assignment 03, with some minor changes. I personally like the color scheme!  
 
 5. Assignment 05 looks very similar ot my final project, but the functionality is much less. For this assignment, I was able to take data from the client and send it and receive it. The css stylesheet was not working properly when I went to review, but I am running from a backup, so I am not 100% sure that is the case with the version I handed in. Also, I was able to implement an API to show the "current" price of doge, which I think worked out quite nicely. One improvement could be to use a legitimate API that has a legitimate key.
 
