@@ -2,9 +2,7 @@
 
 # This file containing the html must be in a cgi-bin sub-directory.
 
-import os
 import cgi
-import requests
 import cgitb
 
 print("content-type: text/html \n")
@@ -61,7 +59,7 @@ print("""
       
     <h1>NASA Astronomy Picture of the Day</h1>
     <div id="NASA-container">
-    
+      <br><br>
         <img width="100%" id="NASA-image" src="" alt="NASA APOD">
         <p id="NASA-title"></p>
         <p id="NASA-explanation"></p>
