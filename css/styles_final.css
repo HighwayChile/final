@@ -16,11 +16,17 @@ h2 {
     text-align: center;
 }
 
+h4 {
+    /* text-align: -60px; */
+    padding-right: 30px;
+}
+
 iframe {
     width: 100%;
 }
 
 .main_nav {
+    clear: left;
     float: right;
     position: sticky;
     top: 5px;
@@ -60,6 +66,11 @@ iframe {
     top: 5px;
 }
 
+#notify_display {
+    text-align: center;
+    padding-left: 30%;
+}
+
 #doge_tag {
     display: inline-block;
 }
@@ -67,7 +78,6 @@ iframe {
 #doge_price {
     display: inline;
 }
-
 
 a:link {
     color: blue;

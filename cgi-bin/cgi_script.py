@@ -57,9 +57,10 @@ print("""
       <div id="doge_price">Finding latest price...</div>
     </div>
       
-    <h1>NASA Astronomy Picture of the Day</h1>
+    <br>
+      
+    <div id="notify_display"><h4>NASA Astronomy Picture of the Day</h4></div>
     <div id="NASA-container">
-      <br><br>
         <img width="100%" id="NASA-image" src="" alt="NASA APOD">
         <p id="NASA-title"></p>
         <p id="NASA-explanation"></p>
