@@ -58,68 +58,17 @@ print("""
       <div id="doge_tag"><h3>Doge Price: </h3></div>
       <div id="doge_price">Finding latest price...</div>
     </div>
-
-
-
-    <script>
-      document.getElementById("search_form").addEventListener("submit", function(event) {
-        event.preventDefault();
-        
-        // lol I had a long time put into this part because of a Shakespearean typo "toLoerCase" is what I typed, omg
-        // I am sure you don't really care, but so much time went into this one silly mistake. But now it works!
-        var searchQuery = document.getElementById("search_field").value.trim().toLowerCase();
-        var pages = {
-          "sitemap":"../dir/sitemap.html", 
-          "dogegraph": "../dir/dogegraph.html",
-          "map":"../dir/sitemap.html", 
-          "graph": "../dir/dogegraph.html",
-          "help" : "../dir/help.html"
-        };
-
-        if (pages.hasOwnProperty(searchQuery)) {
-          window.location.href = pages[searchQuery];
-        }
-        else {
-          alert("Page Not Found!");
-        }
-      });
-
-      // Function to fetch and update the DOGE price
-      function fetchDogePrice() {
-        const apiUrl = `https://api.coingecko.com/api/v3/simple/price?ids=dogecoin&vs_currencies=usd`;
-
-        // Fetch DOGE price from CoinGecko API I think it updates every 10 mins
-        fetch(apiUrl)
-          .then(response => response.json())
-          .then(data => {
-            // this is the part that gets the price from coingecko
-            const dogePrice = data.dogecoin.usd;
-            // writes to log. was using for debug
-            console.log('updoot the prooce, ', dogePrice);
-            // writes to page
-            document.getElementById('doge_price').innerText = `$${dogePrice} USD`;
-          })
-          // I am not actually sure it's 5 calls per minute, but it's something like that.
-          .catch(error => {
-            console.error('Error fetching DOGE price:', error);
-            document.getElementById('doge_price').innerText = 'Only 5 price fetches per minute';
-          });
-      }
-
       
+    <h1>NASA Astronomy Picture of the Day</h1>
+    <div id="NASA-container">
+      <br><br>
+        <img width="100%" id="NASA-image" src="" alt="NASA APOD">
+        <p id="NASA-title"></p>
+        <p id="NASA-explanation"></p>
+    </div>
 
-      // Fetch DOGE price on page load
-      fetchDogePrice();
-      // this updates teh price every 30 seconds
-      setInterval(fetchDogePrice, 30000);
 
-    </script>
-
-    <!-- these were all planned and forgotten. -->
-    <!-- items: search bar, sitemap, graph, news video, news links -->
-    <!-- articles: mini graph, current difficulty, number of blocks, recent trades -->
-  
-      <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+      <br><br><br><br><br><br><br>
      
 """)
 
@@ -183,6 +132,89 @@ print("""
 <iframe src="https://www.youtube.com/embed/AhSEfKo0tlw" width="640" height="480" 
       frameborder="0" webkitallowfullscreen="true" mozallowfullscreen="true" allowfullscreen></iframe>
 
+      
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        fetchNASAData();
+    });
+
+    function fetchNASAData() {
+        const apiUrl = 'https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY';
+
+        fetch(apiUrl)
+            .then(response => response.json())
+            .then(data => {
+                displayData(data);
+            })
+            .catch(error => console.log(error));
+    }
+
+    function displayData(data) {
+        const imageElement = document.getElementById("NASA-image");
+        const titleElement = document.getElementById("NASA-title");
+        const explanationElement = document.getElementById("NASA-explanation");
+
+        imageElement.src = data.hdurl || data.url;
+        titleElement.textContent = data.title;
+        explanationElement.textContent = data.explanation;
+    }
+
+
+
+
+
+    document.getElementById("search_form").addEventListener("submit", function(event) {
+      event.preventDefault();
+      
+      // lol I had a long time put into this part because of a Shakespearean typo "toLoerCase" is what I typed, omg
+      // I am sure you don't really care, but so much time went into this one silly mistake. But now it works!
+      var searchQuery = document.getElementById("search_field").value.trim().toLowerCase();
+      var pages = {
+        "sitemap":"../dir/sitemap.html", 
+        "dogegraph": "../dir/dogegraph.html",
+        "map":"../dir/sitemap.html", 
+        "graph": "../dir/dogegraph.html",
+        "help" : "../dir/help.html"
+      };
+
+      if (pages.hasOwnProperty(searchQuery)) {
+        window.location.href = pages[searchQuery];
+      }
+      else {
+        alert("Page Not Found!");
+      }
+    });
+
+    // Function to fetch and update the DOGE price
+    function fetchDogePrice() {
+      const apiUrl = `https://api.coingecko.com/api/v3/simple/price?ids=dogecoin&vs_currencies=usd`;
+
+      // Fetch DOGE price from CoinGecko API I think it updates every 10 mins
+      fetch(apiUrl)
+        .then(response => response.json())
+        .then(data => {
+          // this is the part that gets the price from coingecko
+          const dogePrice = data.dogecoin.usd;
+          // writes to log. was using for debug
+          console.log('updoot the prooce, ', dogePrice);
+          // writes to page
+          document.getElementById('doge_price').innerText = `$${dogePrice} USD`;
+        })
+        // I am not actually sure it's 5 calls per minute, but it's something like that.
+        .catch(error => {
+          console.error('Error fetching DOGE price:', error);
+          document.getElementById('doge_price').innerText = 'Only 5 price fetches per minute';
+        });
+    }
+
+    
+
+    // Fetch DOGE price on page load
+    fetchDogePrice();
+    // this updates teh price every 30 seconds
+    setInterval(fetchDogePrice, 30000);
+
+  </script>
 </body>
 </html>
 """)
