@@ -1,0 +1,3 @@
+run the pyserver and then type: 'http://127.0.0.1:8000/cgi-bin/cgi_script.py' into the browser
+
+cannot use a secure connection for this (*yet)
